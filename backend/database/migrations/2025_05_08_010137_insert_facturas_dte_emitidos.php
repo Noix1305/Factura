@@ -8,20 +8,31 @@ use App\User; // Importar el modelo User
 
 class InsertFacturasDteEmitidos extends Migration
 {
-    public function up()
-    {
-        // Verificamos si el usuario ya existe
-        $user = User::firstOrCreate(
-            ['email' => 'juan@example.com'],
-            [
-                'name' => 'Juan Perez',
-                'password' => bcrypt('123456'),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]
-        );
-        DB::table('dte_emitidos')->insert([
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1001, 'fecha' => '2025-04-01', 'receptor' => 'Cliente Uno', 'mail_receptor' => 'cliente1@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 10000, 'iva' => 1900, 'total' => 11900, 'xml' => '{
+  public function up()
+  {
+    // Verificamos si el usuario ya existe
+    $user = User::firstOrCreate(
+      ['email' => 'juan@example.com'],
+      [
+        'name' => 'Juan Perez',
+        'password' => bcrypt('123456'),
+        'created_at' => now(),
+        'updated_at' => now(),
+      ]
+    );
+    DB::table('dte_emitidos')->insert([
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1001,
+        'fecha' => '2025-04-01',
+        'receptor' => 'Cliente Uno',
+        'mail_receptor' => 'cliente1@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 10000,
+        'iva' => 1900,
+        'total' => 11900,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -53,8 +64,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000001, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 1, 'iecodanalisis' => 1, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1002, 'fecha' => '2025-04-02', 'receptor' => 'Cliente Dos', 'mail_receptor' => 'cliente2@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 15000, 'iva' => 2850, 'total' => 17850, 'xml' => '{
+}',
+        'track_id' => 1000001,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 1,
+        'iecodanalisis' => 1,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1002,
+        'fecha' => '2025-04-02',
+        'receptor' => 'Cliente Dos',
+        'mail_receptor' => 'cliente2@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 15000,
+        'iva' => 2850,
+        'total' => 17850,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -86,8 +122,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000002, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 2, 'iecodanalisis' => 2, 'fma_pago' => 2, 'estado_pago' => 2, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1003, 'fecha' => '2025-04-03', 'receptor' => 'Cliente Tres', 'mail_receptor' => 'cliente3@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 12000, 'iva' => 2280, 'total' => 14280, 'xml' => '{
+}',
+        'track_id' => 1000002,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 2,
+        'iecodanalisis' => 2,
+        'fma_pago' => 2,
+        'estado_pago' => 2,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1003,
+        'fecha' => '2025-04-03',
+        'receptor' => 'Cliente Tres',
+        'mail_receptor' => 'cliente3@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 12000,
+        'iva' => 2280,
+        'total' => 14280,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -119,8 +180,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000003, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 3, 'iecodanalisis' => 3, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1004, 'fecha' => '2025-04-04', 'receptor' => 'Cliente Cuatro', 'mail_receptor' => 'cliente4@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 17000, 'iva' => 3230, 'total' => 20230, 'xml' => '{
+}',
+        'track_id' => 1000003,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 3,
+        'iecodanalisis' => 3,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1004,
+        'fecha' => '2025-04-04',
+        'receptor' => 'Cliente Cuatro',
+        'mail_receptor' => 'cliente4@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 17000,
+        'iva' => 3230,
+        'total' => 20230,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -152,8 +238,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000004, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 4, 'iecodanalisis' => 4, 'fma_pago' => 2, 'estado_pago' => 2, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1005, 'fecha' => '2025-04-05', 'receptor' => 'Cliente Cinco', 'mail_receptor' => 'cliente5@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 13000, 'iva' => 2470, 'total' => 15470, 'xml' => '{
+}',
+        'track_id' => 1000004,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 4,
+        'iecodanalisis' => 4,
+        'fma_pago' => 2,
+        'estado_pago' => 2,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1005,
+        'fecha' => '2025-04-05',
+        'receptor' => 'Cliente Cinco',
+        'mail_receptor' => 'cliente5@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 13000,
+        'iva' => 2470,
+        'total' => 15470,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -185,8 +296,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000005, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 5, 'iecodanalisis' => 5, 'fma_pago' => 1, 'estado_pago' => 2, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1006, 'fecha' => '2025-04-06', 'receptor' => 'Cliente Seis', 'mail_receptor' => 'cliente6@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 16000, 'iva' => 3040, 'total' => 19040, 'xml' => '{
+}',
+        'track_id' => 1000005,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 5,
+        'iecodanalisis' => 5,
+        'fma_pago' => 1,
+        'estado_pago' => 2,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1006,
+        'fecha' => '2025-04-06',
+        'receptor' => 'Cliente Seis',
+        'mail_receptor' => 'cliente6@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 16000,
+        'iva' => 3040,
+        'total' => 19040,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -218,8 +354,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000006, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 6, 'iecodanalisis' => 6, 'fma_pago' => 2, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1007, 'fecha' => '2025-04-07', 'receptor' => 'Cliente Siete', 'mail_receptor' => 'cliente7@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 9000, 'iva' => 1710, 'total' => 10710, 'xml' => '{
+}',
+        'track_id' => 1000006,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 6,
+        'iecodanalisis' => 6,
+        'fma_pago' => 2,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1007,
+        'fecha' => '2025-04-07',
+        'receptor' => 'Cliente Siete',
+        'mail_receptor' => 'cliente7@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 9000,
+        'iva' => 1710,
+        'total' => 10710,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -251,8 +412,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000007, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 7, 'iecodanalisis' => 7, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1008, 'fecha' => '2025-04-08', 'receptor' => 'Cliente Ocho', 'mail_receptor' => 'cliente8@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 14000, 'iva' => 2660, 'total' => 16660, 'xml' => '{
+}',
+        'track_id' => 1000007,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 7,
+        'iecodanalisis' => 7,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1008,
+        'fecha' => '2025-04-08',
+        'receptor' => 'Cliente Ocho',
+        'mail_receptor' => 'cliente8@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 14000,
+        'iva' => 2660,
+        'total' => 16660,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -284,8 +470,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000008, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 8, 'iecodanalisis' => 8, 'fma_pago' => 2, 'estado_pago' => 2, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1009, 'fecha' => '2025-04-09', 'receptor' => 'Cliente Nueve', 'mail_receptor' => 'cliente9@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 11000, 'iva' => 2090, 'total' => 13090, 'xml' => '{
+}',
+        'track_id' => 1000008,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 8,
+        'iecodanalisis' => 8,
+        'fma_pago' => 2,
+        'estado_pago' => 2,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1009,
+        'fecha' => '2025-04-09',
+        'receptor' => 'Cliente Nueve',
+        'mail_receptor' => 'cliente9@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 11000,
+        'iva' => 2090,
+        'total' => 13090,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -317,8 +528,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000009, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 9, 'iecodanalisis' => 9, 'fma_pago' => 1, 'estado_pago' => 2, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1010, 'fecha' => '2025-04-10', 'receptor' => 'Cliente Diez', 'mail_receptor' => 'cliente10@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 18000, 'iva' => 3420, 'total' => 21420, 'xml' => '{
+}',
+        'track_id' => 1000009,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 9,
+        'iecodanalisis' => 9,
+        'fma_pago' => 1,
+        'estado_pago' => 2,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1010,
+        'fecha' => '2025-04-10',
+        'receptor' => 'Cliente Diez',
+        'mail_receptor' => 'cliente10@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 18000,
+        'iva' => 3420,
+        'total' => 21420,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -350,8 +586,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000010, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 10, 'iecodanalisis' => 10, 'fma_pago' => 2, 'estado_pago' => 2, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1011, 'fecha' => '2025-04-11', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000010,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 10,
+        'iecodanalisis' => 10,
+        'fma_pago' => 2,
+        'estado_pago' => 2,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1011,
+        'fecha' => '2025-04-11',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -383,8 +644,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1012, 'fecha' => '2025-04-12', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1012,
+        'fecha' => '2025-04-12',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -416,8 +702,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1013, 'fecha' => '2025-04-13', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1013,
+        'fecha' => '2025-04-13',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -449,8 +760,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1014, 'fecha' => '2025-04-14', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1014,
+        'fecha' => '2025-04-14',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -482,8 +818,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1015, 'fecha' => '2025-04-15', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1015,
+        'fecha' => '2025-04-15',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -515,8 +876,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1016, 'fecha' => '2025-04-16', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1016,
+        'fecha' => '2025-04-16',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -548,8 +934,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1017, 'fecha' => '2025-04-17', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1017,
+        'fecha' => '2025-04-17',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -581,8 +992,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1018, 'fecha' => '2025-04-18', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1018,
+        'fecha' => '2025-04-18',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -614,8 +1050,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1019, 'fecha' => '2025-04-19', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1019,
+        'fecha' => '2025-04-19',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -647,8 +1108,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1020, 'fecha' => '2025-04-20', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1020,
+        'fecha' => '2025-04-20',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -680,8 +1166,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1021, 'fecha' => '2025-04-21', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1021,
+        'fecha' => '2025-04-21',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -713,8 +1224,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1022, 'fecha' => '2025-04-22', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1022,
+        'fecha' => '2025-04-22',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -746,8 +1282,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1023, 'fecha' => '2025-04-23', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1023,
+        'fecha' => '2025-04-23',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -779,8 +1340,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1024, 'fecha' => '2025-04-24', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1024,
+        'fecha' => '2025-04-24',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -812,8 +1398,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1025, 'fecha' => '2025-04-25', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1025,
+        'fecha' => '2025-04-25',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -845,8 +1456,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1026, 'fecha' => '2025-04-26', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1026,
+        'fecha' => '2025-04-26',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -878,8 +1514,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1027, 'fecha' => '2025-04-27', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1027,
+        'fecha' => '2025-04-27',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -911,8 +1572,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1028, 'fecha' => '2025-04-28', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1028,
+        'fecha' => '2025-04-28',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -944,8 +1630,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1029, 'fecha' => '2025-04-29', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1029,
+        'fecha' => '2025-04-29',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -977,8 +1688,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1030, 'fecha' => '2025-04-30', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1030,
+        'fecha' => '2025-04-30',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1010,8 +1746,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1031, 'fecha' => '2025-05-01', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1031,
+        'fecha' => '2025-05-01',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1043,8 +1804,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1032, 'fecha' => '2025-05-02', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1032,
+        'fecha' => '2025-05-02',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1076,8 +1862,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1033, 'fecha' => '2025-05-03', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1033,
+        'fecha' => '2025-05-03',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1109,8 +1920,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1034, 'fecha' => '2025-05-04', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1034,
+        'fecha' => '2025-05-04',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1142,8 +1978,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1035, 'fecha' => '2025-05-05', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1035,
+        'fecha' => '2025-05-05',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1175,8 +2036,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1036, 'fecha' => '2025-05-06', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1036,
+        'fecha' => '2025-05-06',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1208,8 +2094,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1037, 'fecha' => '2025-05-07', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1037,
+        'fecha' => '2025-05-07',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1241,8 +2152,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1038, 'fecha' => '2025-05-08', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1038,
+        'fecha' => '2025-05-08',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1274,8 +2210,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1039, 'fecha' => '2025-05-09', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1039,
+        'fecha' => '2025-05-09',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1307,8 +2268,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1040, 'fecha' => '2025-05-10', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1040,
+        'fecha' => '2025-05-10',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1340,8 +2326,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1041, 'fecha' => '2025-05-12', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1041,
+        'fecha' => '2025-05-12',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1373,8 +2384,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1042, 'fecha' => '2025-05-13', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1042,
+        'fecha' => '2025-05-13',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1406,8 +2442,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1043, 'fecha' => '2025-05-14', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1043,
+        'fecha' => '2025-05-14',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1439,8 +2500,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1044, 'fecha' => '2025-05-15', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1044,
+        'fecha' => '2025-05-15',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1472,8 +2558,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1045, 'fecha' => '2025-05-16', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1045,
+        'fecha' => '2025-05-16',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1505,8 +2616,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1046, 'fecha' => '2025-05-17', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1046,
+        'fecha' => '2025-05-17',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1538,8 +2674,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1047, 'fecha' => '2025-05-18', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1047,
+        'fecha' => '2025-05-18',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1571,8 +2732,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1048, 'fecha' => '2025-05-19', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1048,
+        'fecha' => '2025-05-19',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1604,8 +2790,33 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1049, 'fecha' => '2025-05-20', 'receptor' => 'Cliente Once', 'mail_receptor' => 'cliente11@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 19000, 'iva' => 3610, 'total' => 22610, 'xml' => '{
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1049,
+        'fecha' => '2025-05-20',
+        'receptor' => 'Cliente Once',
+        'mail_receptor' => 'cliente11@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 19000,
+        'iva' => 3610,
+        'total' => 22610,
+        'xml' => '{
   "Encabezado": {
     "IdDoc": {
       "Folio": 0,
@@ -1637,64 +2848,135 @@ class InsertFacturasDteEmitidos extends Migration
       "PrcItem": 12605
     }
   ]
-}', 'track_id' => 1000011, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 11, 'iecodanalisis' => 11, 'fma_pago' => 1, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-            ['tipo_dte' => 33, 'emisor' => 'Empresa SPA', 'folio' => 1050, 'fecha' => '2025-05-21', 'receptor' => 'Cliente Cincuenta', 'mail_receptor' => 'cliente50@correo.cl', 'mail_sii' => 'sii@correo.cl', 'neto' => 25000, 'iva' => 4750, 'total' => 29750, 'xml' => '<xml>factura50</xml>', 'track_id' => 1000050, 'revision_estado' => 'ACEPTADO', 'revision_detalle' => 'Todo OK', 'anulado' => 0, 'id_user' => 7, 'iecuenta' => 50, 'iecodanalisis' => 50, 'fma_pago' => 2, 'estado_pago' => 1, 'notificacion' => 0, 'created_at' => DB::raw('NOW()'), 'updated_at' => DB::raw('NOW()'), 'emite_id' => $user->id],
-        ]);
-    }
+}',
+        'track_id' => 1000011,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 11,
+        'iecodanalisis' => 11,
+        'fma_pago' => 1,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+      [
+        'tipo_dte' => 33,
+        'emisor' => 'Empresa SPA',
+        'folio' => 1050,
+        'fecha' => '2025-05-21',
+        'receptor' => 'Cliente Cincuenta',
+        'mail_receptor' => 'cliente50@correo.cl',
+        'mail_sii' => 'sii@correo.cl',
+        'neto' => 25000,
+        'iva' => 4750,
+        'total' => 29750,
+        'xml' => '{
+   "Encabezado": {
+     "IdDoc": {
+       "Folio": 0,
+       "TipoDTE": 33,
+       "FmaPago": 1,
+       "FchEmis": "2022-11-24"
+     },
+     "Receptor": {
+       "RUTRecep": "77777777-7",
+       "RznSocRecep": "testtesttest",
+       "DirRecep": "asd asd",
+       "CmnaRecep": "asd",
+       "GiroRecep": "asd"
+     },
+     "Emisor": {
+       "RUTEmisor": "76351470-6",
+       "RznSoc": "IHOSTING SERVICIOS INTERNET LIMITADA",
+       "GiroEmis": "VENTA AL POR MENOR EN EMPRESAS DE VENTA A DISTANCIA VIA INTERNET",
+       "Acteco": 525130,
+       "DirOrigen": "4 NORTE 1233 C POB VERGARA",
+       "CmnaOrigen": "VINA DEL MAR"
+     }
+   },
+   "Detalle": [
+     {
+       "NmbItem": "Hosting Wordpress",
+       "DscItem": "Plan WP 12GB (05/01/2022 - 05/01/2022) - (pruebadatoshabilitacion.com) Ref: 47558",
+       "QtyItem": 1,
+       "PrcItem": 12605
+     }
+   ]
+ }',
+        'track_id' => 1000050,
+        'revision_estado' => 'ACEPTADO',
+        'revision_detalle' => 'Todo OK',
+        'anulado' => 0,
+        'id_user' => 7,
+        'iecuenta' => 50,
+        'iecodanalisis' => 50,
+        'fma_pago' => 2,
+        'estado_pago' => 1,
+        'notificacion' => 0,
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()'),
+        'emite_id' => $user->id
+      ],
+    ]);
+  }
 
-    public function down()
-    {
-        DB::table('dte_emitidos')->whereIn('folio', [
-            1001,
-            1002,
-            1003,
-            1004,
-            1005,
-            1006,
-            1007,
-            1008,
-            1009,
-            1010,
-            1011,
-            1012,
-            1013,
-            1014,
-            1015,
-            1016,
-            1017,
-            1018,
-            1019,
-            1020,
-            1021,
-            1022,
-            1023,
-            1024,
-            1025,
-            1026,
-            1027,
-            1028,
-            1029,
-            1030,
-            1031,
-            1032,
-            1033,
-            1034,
-            1035,
-            1036,
-            1037,
-            1038,
-            1039,
-            1040,
-            1041,
-            1042,
-            1043,
-            1044,
-            1045,
-            1046,
-            1047,
-            1048,
-            1049,
-            1050
-        ])->delete();
-    }
+  public function down()
+  {
+    DB::table('dte_emitidos')->whereIn('folio', [
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009,
+      1010,
+      1011,
+      1012,
+      1013,
+      1014,
+      1015,
+      1016,
+      1017,
+      1018,
+      1019,
+      1020,
+      1021,
+      1022,
+      1023,
+      1024,
+      1025,
+      1026,
+      1027,
+      1028,
+      1029,
+      1030,
+      1031,
+      1032,
+      1033,
+      1034,
+      1035,
+      1036,
+      1037,
+      1038,
+      1039,
+      1040,
+      1041,
+      1042,
+      1043,
+      1044,
+      1045,
+      1046,
+      1047,
+      1048,
+      1049,
+      1050
+    ])->delete();
+  }
 }
